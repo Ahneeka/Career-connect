@@ -1,6 +1,7 @@
-import { equal } from "assert";
+
 import { Form, Formik, FormikHelpers, Field, FieldProps } from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 // import styles from "../styles.module.css";
 
 interface IProps {}
@@ -11,6 +12,7 @@ function SignUp(props: IProps) {
     email: string;
     password: string;
     confirmPassword: string;
+    rememberme: boolean;
   }
 
   const initialValue: ILogin = {
@@ -18,6 +20,7 @@ function SignUp(props: IProps) {
     email: "",
     password: "",
     confirmPassword:"",
+    rememberme: false
   };
 
   const loginSchema = yup.object().shape({
@@ -36,8 +39,11 @@ function SignUp(props: IProps) {
 
   });
 
+  const navigate = useNavigate();
+
   const onSubmit = (values: ILogin, helpers: FormikHelpers<ILogin>) => {
     console.log(values);
+    navigate("/welcome");
   };
   return (
     <div className="wrapper">
@@ -103,7 +109,7 @@ function SignUp(props: IProps) {
                 {({ field, meta }: FieldProps) => (
                   <div>
                     <input 
-                    type="text" 
+                    type="password" 
                     placeholder="Confairm Password" 
                     className="inputField"
                     {...field} />
@@ -114,6 +120,17 @@ function SignUp(props: IProps) {
                 )}
               </Field>
 
+              <Field name='remember me'>
+                {({field,meta}: FieldProps<ILogin['rememberme']>) => (
+                    <div className='flex' >
+                    <input 
+                    type='checkbox' 
+                    name='remember me'
+                    /> I agree to the <span>terms of service</span> and <span>privacy policy</span> guiding this platform
+                    {meta.touched && meta.error ? <div>meta.error</div> : null}
+                  </div>
+                )}
+             </Field>
 
               <div>
                 <button className="btn" type="submit" aria-label="">
