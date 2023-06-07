@@ -1,4 +1,6 @@
+
 import styles from "../styles.module.css";
+import { Link } from "react-router-dom";
 
 interface IProps {}
 
@@ -11,13 +13,18 @@ function Onboarding(props: IProps) {
             <h3>Creating Success.</h3>
 
             <div className={styles.but}>
+                <Link to="/Signup">
                 <button type="button">
                     SignUp
                 </button>
+                </Link>
 
+                <Link to="/login">
                 <button type="button">
                     Login
                 </button>
+                </Link>
+                
             </div>
 
             <div className={styles.wrap}>
