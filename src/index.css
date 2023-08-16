@@ -37,8 +37,8 @@ code {
   height: 155px;
   left: 143px;
   top: 110px;
-  margin-bottom: 8rem;
-  margin-top: 4rem;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
 }
 
 
@@ -48,7 +48,7 @@ code {
   border: 2px solid rgb(35, 36, 1);
   padding: 10px 15px;
   border-radius: 0.4rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1rem;
   font-weight: 600;
   font-size: 13px;
 }
@@ -87,6 +87,7 @@ p.text{
   font-size: 1rem;
   margin-top: 2rem;
   border: 2px solid rgb(35, 36, 1);
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -161,9 +162,13 @@ p.text{
   line-height: 28px;
  }
 
+ .flex{
+  font-size: 1.2rem;
+ }
+
  .flex span{
   color: rgba(246, 159, 55, 1);
-  font-size: 1.2;
+  font-size: 1.2rem;
  }
 
  .but  button{

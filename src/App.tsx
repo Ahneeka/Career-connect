@@ -5,6 +5,7 @@ import Onboarding from "./pages/Onboarding";
 import Login from "./pages/Login";
 import SignUp from './pages/SignUp';
 import WelcomeScreen from './pages/WelcomeScreen';
+import PracticeSession from './pages/PracticeSession';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/welcome" element={<WelcomeScreen/>} />
+        <Route path="/practice" element={<PracticeSession />} />
         </Routes>
       
       </BrowserRouter>

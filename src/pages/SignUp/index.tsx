@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 interface IProps {}
 
 function SignUp(props: IProps) {
-  interface ILogin {
+  interface ISignup {
     fullName: string;
     email: string;
     password: string;
@@ -15,7 +15,7 @@ function SignUp(props: IProps) {
     rememberme: boolean;
   }
 
-  const initialValue: ILogin = {
+  const initialValue: ISignup = {
     fullName: "",
     email: "",
     password: "",
@@ -23,7 +23,7 @@ function SignUp(props: IProps) {
     rememberme: false
   };
 
-  const loginSchema = yup.object().shape({
+  const signupSchema = yup.object().shape({
     fullName: yup.string().required("Required*"),
     email: yup.string().email("Invalid email format").required("Required*"),
     password: yup
@@ -41,7 +41,7 @@ function SignUp(props: IProps) {
 
   const navigate = useNavigate();
 
-  const onSubmit = (values: ILogin, helpers: FormikHelpers<ILogin>) => {
+  const onSubmit = (values: ISignup, helpers: FormikHelpers<ISignup>) => {
     console.log(values);
     navigate("/welcome");
   };
@@ -52,7 +52,7 @@ function SignUp(props: IProps) {
 
         <Formik
           onSubmit={onSubmit}
-          validationSchema={loginSchema}
+          validationSchema={signupSchema}
           initialValues={initialValue}
           enableReinitialize
         >
@@ -121,7 +121,7 @@ function SignUp(props: IProps) {
               </Field>
 
               <Field name='remember me'>
-                {({field,meta}: FieldProps<ILogin['rememberme']>) => (
+                {({field,meta}: FieldProps<ISignup['rememberme']>) => (
                     <div className='flex' >
                     <input 
                     type='checkbox' 
